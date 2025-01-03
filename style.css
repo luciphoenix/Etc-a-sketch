@@ -9,7 +9,21 @@
 
 h1{
     text-align: center;
-    padding: 20px;
+    padding: 10px;
+}
+
+button{
+    padding: 5px;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+    border: 1px none;
+    background-color: green;
+    color: aliceblue;
+    font-weight: 900;
+    border-radius: 5px;
 }
 .container{
     width: 800px;
