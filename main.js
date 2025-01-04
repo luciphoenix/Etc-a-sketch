@@ -6,9 +6,11 @@ function askNumber() {
   createGrid(gridNumber);
 }
 
+createGrid()
+
 button.addEventListener("click", askNumber);
 
-function createGrid(number) {
+function createGrid(number = 16) {
   clearContainer();
   for (let i = 0; i < number ** 2; i++) {
     const div = document.createElement("div");
@@ -21,4 +23,22 @@ function createGrid(number) {
 
 function clearContainer() {
   container.replaceChildren();
+}
+
+
+container.addEventListener('mouseover', addHover)
+
+function addHover(e){
+  color = `rgb(${random()},${random()},${random()})`
+  e.target.style.backgroundColor= color
+  console.log(e.target);
+ 
+}
+
+container.addEventListener('mouseout', (e)=>{
+ e.target.style.backgroundColor = ''
+})
+
+function random(){
+  return Math.trunc(Math.random() * 255)
 }
