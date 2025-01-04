@@ -1,14 +1,8 @@
 const container = document.querySelector(".container");
 const button = document.querySelector("button");
 
-function askNumber() {
-  const gridNumber = prompt("Enter a number between 1 - 100");
-  createGrid(gridNumber);
-}
 
 createGrid()
-
-button.addEventListener("click", askNumber);
 
 function createGrid(number = 16) {
   clearContainer();
@@ -25,7 +19,13 @@ function clearContainer() {
   container.replaceChildren();
 }
 
+function askNumber() {
+  const gridNumber = prompt("Enter a number between 1 - 100");
+  gridNumber > 100 && askNumber() //Entered number must be less than 101
+  createGrid(gridNumber);
+}
 
+button.addEventListener("click", askNumber);
 container.addEventListener('mouseover', addHover)
 
 function addHover(e){
@@ -42,3 +42,8 @@ container.addEventListener('mouseout', (e)=>{
 function random(){
   return Math.trunc(Math.random() * 255)
 }
+
+
+
+
+
