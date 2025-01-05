@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
-const button = document.querySelector("button");
+const gridButton = document.querySelector(".grid-number");
+const resetButton = document.querySelector(".reset");
 
 createGrid();
 
@@ -24,7 +25,7 @@ function askNumber() {
   createGrid(gridNumber);
 }
 
-button.addEventListener("click", askNumber);
+gridButton.addEventListener("click", askNumber);
 container.addEventListener("mouseover", addHover);
 
 function addHover(e) {
@@ -38,10 +39,14 @@ function addHover(e) {
   e.target.style.backgroundColor = color;
 }
 
-// container.addEventListener('mouseout', (e)=>{
-//  e.target.style.backgroundColor = ''
-// })
-
 function random() {
   return Math.trunc(Math.random() * 255);
+}
+
+resetButton.addEventListener("click", resetGrid);
+
+function resetGrid() {
+  [...container.children].forEach((grid) => {
+    grid.style.backgroundColor = "";
+  });
 }
